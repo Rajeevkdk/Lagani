@@ -1,0 +1,1026 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/health": {
+      "get": {
+        "operationId": "AppController_health",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/ready": {
+      "get": {
+        "operationId": "AppController_ready",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "operationId": "AppController_register",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "operationId": "AppController_login",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/auth/verify": {
+      "post": {
+        "operationId": "AppController_verify",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/auth/reset-request": {
+      "post": {
+        "operationId": "AppController_resetRequest",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/auth/reset": {
+      "post": {
+        "operationId": "AppController_reset",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/auth/refresh": {
+      "post": {
+        "operationId": "AppController_refresh",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "operationId": "AppController_logout",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/dev/mail": {
+      "get": {
+        "operationId": "AppController_mail",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/me": {
+      "get": {
+        "operationId": "AppController_me",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      },
+      "patch": {
+        "operationId": "AppController_preferences",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/me/export": {
+      "get": {
+        "operationId": "AppController_export",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/me/deletion": {
+      "post": {
+        "operationId": "AppController_deletion",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/deletion/{id}": {
+      "get": {
+        "operationId": "AppController_deletionStatus",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/businesses": {
+      "get": {
+        "operationId": "AppController_businesses",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/businesses/{id}": {
+      "get": {
+        "operationId": "AppController_business",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/saved": {
+      "get": {
+        "operationId": "AppController_saved",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/saved/{id}": {
+      "post": {
+        "operationId": "AppController_save",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/rounds/{id}/quote": {
+      "post": {
+        "operationId": "AppController_quote",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/commitments": {
+      "post": {
+        "operationId": "AppController_commitment",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/commitments/{id}/cancel": {
+      "post": {
+        "operationId": "AppController_cancel",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/commitments/{id}/receipt": {
+      "get": {
+        "operationId": "AppController_receipt",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/portfolio": {
+      "get": {
+        "operationId": "AppController_portfolio",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/activity": {
+      "get": {
+        "operationId": "AppController_activity",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/notifications": {
+      "get": {
+        "operationId": "AppController_notifications",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/notifications/{id}/read": {
+      "post": {
+        "operationId": "AppController_read",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/owner/businesses": {
+      "get": {
+        "operationId": "AppController_ownerBusinesses",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      },
+      "post": {
+        "operationId": "AppController_create",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/owner/businesses/{id}": {
+      "patch": {
+        "operationId": "AppController_edit",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/owner/businesses/{id}/financials": {
+      "post": {
+        "operationId": "AppController_financials",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/financials/template": {
+      "get": {
+        "operationId": "AppController_template",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/owner/businesses/{id}/documents": {
+      "post": {
+        "operationId": "AppController_upload",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/owner/businesses/{id}/documents/sample": {
+      "post": {
+        "operationId": "AppController_sample",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/owner/businesses/{id}/submit": {
+      "post": {
+        "operationId": "AppController_submit",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/owner/businesses/{id}/updates": {
+      "post": {
+        "operationId": "AppController_update",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/documents/{id}/link": {
+      "post": {
+        "operationId": "AppController_link",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/documents/{id}/download": {
+      "get": {
+        "operationId": "AppController_download",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/queue": {
+      "get": {
+        "operationId": "AppController_queue",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/businesses/{id}/review": {
+      "post": {
+        "operationId": "AppController_review",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/businesses/{id}/analysis": {
+      "post": {
+        "operationId": "AppController_analysis",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/reports/{id}/approve": {
+      "post": {
+        "operationId": "AppController_approve",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/reports/{id}": {
+      "patch": {
+        "operationId": "AppController_editReport",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/businesses/{id}/publish": {
+      "post": {
+        "operationId": "AppController_publish",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/rounds/{id}/close": {
+      "post": {
+        "operationId": "AppController_close",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/rounds/{id}/cancel": {
+      "post": {
+        "operationId": "AppController_cancelRound",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/updates/{id}/approve": {
+      "post": {
+        "operationId": "AppController_approveUpdate",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/documents/{id}/rescan": {
+      "post": {
+        "operationId": "AppController_rescan",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/reconciliation": {
+      "get": {
+        "operationId": "AppController_reconcile",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/jobs/{id}/retry": {
+      "post": {
+        "operationId": "AppController_retry",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/support": {
+      "post": {
+        "operationId": "AppController_support",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/businesses/{id}/report": {
+      "post": {
+        "operationId": "AppController_report",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    },
+    "/api/admin/moderation/{id}": {
+      "post": {
+        "operationId": "AppController_moderate",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "tags": [
+          "Lagani simulation"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Lagani simulation API",
+    "description": "Simulation only. All monetary values are strings in NPR paisa; 100 paisa = NPR 1. See packages/contracts/api.md for request/response models.",
+    "version": "0.1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {}
+  }
+}

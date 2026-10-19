@@ -1,0 +1,23 @@
+{
+  "name": "lagani",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Nepal-focused equity crowdfunding simulation with Flutter, React, NestJS and PostgreSQL. No real money or securities.",
+  "engines": { "node": ">=24.13.1 <25" },
+  "scripts": {
+    "setup": "npm ci --prefix services/api && npm ci --prefix apps/admin",
+    "dev": "node scripts/dev.mjs",
+    "db:start": "node scripts/database.mjs start",
+    "db:stop": "node scripts/database.mjs stop",
+    "db:migrate": "npm run db:migrate --prefix services/api",
+    "db:seed": "npm run db:seed --prefix services/api",
+    "build": "npm run build --prefix services/api && npm run build --prefix apps/admin",
+    "typecheck": "npm run typecheck --prefix services/api && npm run typecheck --prefix apps/admin",
+    "test": "npm test --prefix services/api",
+    "test:integration": "npm run test:integration --prefix services/api",
+    "test:e2e": "playwright test",
+    "test:contrast": "node scripts/contrast.mjs"
+  },
+  "devDependencies": { "@playwright/test": "1.56.1", "pg": "8.16.3" },
+  "optionalDependencies": { "@embedded-postgres/windows-x64": "18.4.0-beta.17" }
+}

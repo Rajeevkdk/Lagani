@@ -1,0 +1,13 @@
+import { createContext, useContext, useEffect, useRef } from 'react';
+import type { ReactNode } from 'react';
+import { AlertCircle, ArrowRight, Check, LoaderCircle, Sprout, X } from 'lucide-react';
+export const LanguageContext=createContext<'en'|'ne'>('en');
+export function useText(){const lang=useContext(LanguageContext);return (en:string,ne:string)=>lang==='ne'?ne:en;}
+export function Notice({children,tone='info'}:{children:ReactNode;tone?:'info'|'error'|'success'}){return <div className={`notice ${tone}`} role={tone==='error'?'alert':'status'}>{tone==='success'?<Check size={18}/>:<AlertCircle size={18}/>}<span>{children}</span></div>}
+export function ErrorState({error,retry}:{error:unknown;retry?:()=>void}){return <div className="error-state"><AlertCircle size={28}/><h3>We couldn’t load this just yet</h3><p>{error instanceof Error?error.message:'Please try again.'}</p>{retry&&<button className="secondary" onClick={retry}>Try again</button>}</div>}
+export function Empty({title,body,action,onAction}:{title:string;body:string;action?:string;onAction?:()=>void}){return <div className="empty-state"><span className="empty-art"><Sprout size={38}/></span><h3>{title}</h3><p>{body}</p>{action&&<button className="primary" onClick={onAction}>{action}<ArrowRight size={17}/></button>}</div>}
+export function Loading(){return <div className="loading" role="status" aria-label="Loading"><div className="skeleton sk-title"/><div className="skeleton sk-hero"/><div className="grid three">{[1,2,3].map(i=><div key={i} className="skeleton sk-card"/>)}</div></div>}
+export function Busy({children,pending=false}:{children:ReactNode;pending?:boolean}){return <>{pending&&<LoaderCircle size={17} className="spin"/>}{children}</>}
+export function Modal({title,children,onClose,wide=false}:{title:string;children:ReactNode;onClose:()=>void;wide?:boolean}){const ref=useRef<HTMLDialogElement>(null);useEffect(()=>{const d=ref.current;d?.showModal();const close=(e:Event)=>{e.preventDefault();onClose();};d?.addEventListener('cancel',close);return ()=>{d?.removeEventListener('cancel',close);d?.close();};},[onClose]);return <dialog ref={ref} className={`modal ${wide?'wide':''}`} aria-labelledby="modal-title"><header><h2 id="modal-title">{title}</h2><button className="icon-button" aria-label="Close dialog" onClick={onClose}><X size={21}/></button></header><div className="modal-content">{children}</div></dialog>}
+export function Status({value}:{value:string}){return <span className={`status ${value}`}><span/>{value.replace(/[-_]/g,' ')}</span>}
+export function Field({label,children,hint}:{label:string;children:ReactNode;hint?:string}){return <label className="field"><span>{label}</span>{children}{hint&&<small>{hint}</small>}</label>}

@@ -1,0 +1,10 @@
+import {spawn} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+import {resolve,dirname} from 'node:path';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const npm=process.platform==='win32'?'npm.cmd':'npm';
+const children=[['services/api','dev'],['apps/admin','dev']].map(([directory,script])=>spawn(npm,['run',script],{cwd:resolve(root,directory),stdio:'inherit',shell:process.platform==='win32'}));
+let shuttingDown=false;
+const stop=()=>{if(shuttingDown)return;shuttingDown=true;for(const child of children)child.kill();};
+process.on('SIGINT',stop);process.on('SIGTERM',stop);
+for(const child of children)child.on('exit',code=>{if(!shuttingDown&&code){process.exitCode=code;stop();}});

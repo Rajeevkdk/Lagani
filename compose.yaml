@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:18.4
+    environment:
+      POSTGRES_USER: lagani
+      POSTGRES_PASSWORD: lagani_local_only
+      POSTGRES_DB: lagani
+    ports: ["127.0.0.1:54322:5432"]
+    volumes: ["postgres-data:/var/lib/postgresql"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lagani -d lagani"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  clamav:
+    image: clamav/clamav:1.4
+    profiles: ["scanner"]
+    ports: ["127.0.0.1:3310:3310"]
+    volumes: ["clamav-signatures:/var/lib/clamav"]
+volumes:
+  postgres-data:
+  clamav-signatures:
