@@ -1,0 +1,31 @@
+name: Import reviewed source
+on:
+  push:
+    paths: ['.github/workflows/import-source.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and extract reviewed source
+        run: |
+          echo '5ee6279ffa046216fe1ddbbc03c9e0612f3987ce9f989379aed2d397e86447b3  lagani-source.zip' | sha256sum --check
+          python3 - <<'PY'
+          import pathlib, zipfile
+          with zipfile.ZipFile('lagani-source.zip') as archive:
+              for item in archive.infolist():
+                  path = pathlib.PurePosixPath(item.filename)
+                  assert not path.is_absolute() and '..' not in path.parts
+                  assert path.parts[0] not in ('.git', '.github')
+                  assert (item.external_attr >> 16) & 0o170000 != 0o120000
+              archive.extractall('.')
+          PY
+          rm lagani-source.zip
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Publish Lagani source, documentation and screenshots'
+          git push
