@@ -1,0 +1,79 @@
+name: Simulation checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  api-and-browser:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18.4
+        env:
+          POSTGRES_USER: lagani
+          POSTGRES_PASSWORD: lagani_local_only
+          POSTGRES_DB: lagani
+        ports: [54322:5432]
+        options: >-
+          --health-cmd "pg_isready -U lagani -d lagani"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://lagani:lagani_local_only@127.0.0.1:54322/lagani
+      AUTH_MODE: local
+      HOST: 127.0.0.1
+      NODE_ENV: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            services/api/package-lock.json
+            apps/admin/package-lock.json
+      - run: npm ci
+      - run: npm run setup
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npm run test:contrast
+      - run: npm test
+      - run: npm run db:migrate
+      - run: npm run db:seed
+      - run: npm run test:integration
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-verification
+          path: |
+            playwright-report
+            test-results
+  flutter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.0'
+          channel: stable
+          cache: true
+      - working-directory: apps/mobile
+        run: flutter pub get --enforce-lockfile
+      - working-directory: apps/mobile
+        run: dart format --output=none --set-exit-if-changed lib test integration_test
+      - working-directory: apps/mobile
+        run: flutter analyze
+      - working-directory: apps/mobile
+        run: flutter test
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - working-directory: apps/mobile
+        run: flutter build appbundle --release --dart-define=API_URL=https://example.invalid/api
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-build-check-only
+          path: apps/mobile/build/app/outputs/bundle/release/*.aab
