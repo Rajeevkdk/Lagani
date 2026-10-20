@@ -17,7 +17,7 @@ Measured locally on Windows and in GitHub Actions on Ubuntu, 20 October 2026. Th
 | Flutter formatting | PASS | lib, test and integration_test formatted. |
 | Android native integration | NOT RUN | adb reports no attached devices. Native smoke source is supplied. |
 | Android packaging | DEBUG APK PASS | assembleDebug completed: 242 tasks, 2m 48s. Debug-only APK; no signed production AAB or device-install claim. |
-| Remote CI | API/BROWSER PASS | [Run 39432822301](https://github.com/Rajeevkdk/Lagani/actions/runs/39432822301), source commit 633a9a4: type checks, production builds, 14 contrast pairs, 9 unit tests, migrations/seed, 18 PostgreSQL tests and all 3 browser journeys passed. Flutter analysis/tests passed; bundle build status is recorded below. |
+| Remote CI | PASS | [Run 39432822301](https://github.com/Rajeevkdk/Lagani/actions/runs/39432822301), source commit 633a9a4: type checks, production builds, 14 contrast pairs, 9 unit tests, migrations/seed, 18 PostgreSQL tests and all 3 browser journeys passed. Both jobs completed successfully: API/browser in 2m 3s; Flutter formatting, analysis, 9 tests and unsigned app-bundle build in 5m 37s. |
 
 ## Browser stories and evidence
 
@@ -42,7 +42,7 @@ Actual web captures are in screenshots/01-home.png through 11-admin.png. They ar
 
 ## Android CI build evidence
 
-[Run 39283909691](https://github.com/Rajeevkdk/Lagani/actions/runs/39283909691) passed Flutter formatting, analysis, all 9 tests and the release app-bundle build. Its `unsigned-build-check-only` artifact uses `https://example.invalid/api`: it proves compilation only, not signing, installation, hosting or a working release backend.
+[Run 39432822301](https://github.com/Rajeevkdk/Lagani/actions/runs/39432822301) passed Flutter formatting, analysis, all 9 tests and the release app-bundle build. Its `unsigned-build-check-only` artifact uses `https://example.invalid/api`: it proves compilation only, not signing, installation, hosting or a working release backend.
 
 ## Remaining implementation and environment gaps
 
