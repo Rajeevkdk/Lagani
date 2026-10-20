@@ -28,11 +28,12 @@ before(async () => {
   process.env.NODE_ENV = "test";
   documentDir = await mkdtemp(join(tmpdir(), "lagani-test-docs-"));
   process.env.DOCUMENT_DIRECTORY = documentDir;
-  db = await import("../src/db");
-  const authModule = await import("../src/auth"),
-    service = await import("../src/service"),
-    docModule = await import("../src/documents");
-  ledger = await import("../src/ledger");
+  // Use the same CommonJS module cache as the API so teardown owns every pool.
+  db = require("../src/db");
+  const authModule = require("../src/auth"),
+    service = require("../src/service"),
+    docModule = require("../src/documents");
+  ledger = require("../src/ledger");
   auth = new authModule.AuthService();
   app = new service.AppService(auth);
   docs = new docModule.DocumentService(auth);
@@ -56,7 +57,7 @@ before(async () => {
 });
 after(async () => {
   if (db) await db.pool.end();
-  await adminPool.query(`DROP DATABASE IF EXISTS "${dbName}" WITH (FORCE)`);
+  await adminPool.query(`DROP DATABASE IF EXISTS "${dbName}"`);
   await adminPool.end();
   if (documentDir) await rm(documentDir, { recursive: true, force: true });
 });
@@ -467,7 +468,7 @@ test("deletion cancels pending funds, revokes access and anonymizes profile", as
   assert.equal(await ledger.balance(db.pool, `user:${u.id}`), 100000000n);
 });
 test("durable notification redelivery has no duplicate effect and ledger fully reconciles", async () => {
-  const { JobWorker } = await import("../src/worker");
+  const { JobWorker } = require("../src/worker");
   const worker = new JobWorker();
   for (let i = 0; i < 50; i++) await worker.tick();
   const event = (
@@ -583,7 +584,7 @@ test("report job retry retains one version; fixture ignores embedded directives 
       draft.id,
     ])
   )[0].source_job_id;
-  const { buildReport } = await import("../src/research");
+  const { buildReport } = require("../src/research");
   const retried = await buildReport(r.id, users.reviewer.id, "fixture", job);
   assert.equal(retried.id, draft.id);
   assert.equal(
@@ -648,7 +649,7 @@ test("unassigned reviewer queue omits private fields and deletion removes docume
 });
 test("HTTP investor journey validates real auth, quotes, commitment retry and receipt", async () => {
   process.env.PORT = "0";
-  const { bootstrap } = await import("../src/main");
+  const { bootstrap } = require("../src/main");
   const server = await bootstrap();
   try {
     const base = `${await server.getUrl()}/api`,
