@@ -1,6 +1,6 @@
 # Implementation status
 
-Last audited 19 October 2026. Checked source/features and measured runtime evidence are separate. See TEST-RESULTS.md for exact coverage and known gaps.
+Last audited 20 October 2026. Checked source/features and measured runtime evidence are separate. See TEST-RESULTS.md for exact coverage and known gaps.
 
 | Phase | Implemented | Verification and remaining work |
 | --- | --- | --- |
@@ -11,7 +11,7 @@ Last audited 19 October 2026. Checked source/features and measured runtime evide
 | Exact simulation | Integer paisa, share math, quotes, row locks, idempotency, balanced immutable journals, close/issuance/refund, receipts | 9 unit + 18 real PostgreSQL tests pass. Browser commitment/cancel/deletion passes. |
 | Experience/operations | Themes, core mobile English/Nepali resources, reduced motion, inbox, learning, owner updates, moderation, jobs/reconciliation | Browser preference/reconciliation checks and 9 Flutter tests pass. Dynamic localization and full native accessibility/performance review remain. |
 | Handoff/release | CI, API contracts, walkthrough, privacy/store/data-safety drafts, screenshots, Android source/signing config | See TEST-RESULTS.md and PLAY-RELEASE.md. Device, hosting, signing and Console tasks are not complete. |
-| GitHub | Published at [Rajeevkdk/Lagani](https://github.com/Rajeevkdk/Lagani), with description, topics, README and 11 screenshots | All 172 source files verified against the local build (ignoring line endings). CI was queued at handoff; see Actions for its current result. |
+| GitHub | Published at [Rajeevkdk/Lagani](https://github.com/Rajeevkdk/Lagani), with description, topics, README and 11 screenshots | All 172 source files verified against the local build (ignoring line endings). The API/browser job passes in [run 39432822301](https://github.com/Rajeevkdk/Lagani/actions/runs/39432822301), including the complete moderation journey. Flutter analysis/tests and an unsigned compile-only AAB have passed; see TEST-RESULTS.md for boundaries. |
 
 ## Decisions
 
