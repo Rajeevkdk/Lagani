@@ -6,17 +6,21 @@ import { supabaseAdmin } from "./auth";
 @Injectable()
 export class JobWorker implements OnModuleInit, OnModuleDestroy {
   private timer?: NodeJS.Timeout;
-  private working = false;
+  private inFlight?: Promise<void>;
   onModuleInit() {
     this.timer = setInterval(() => void this.tick(), 700);
     this.timer.unref();
   }
-  onModuleDestroy() {
+  async onModuleDestroy() {
     if (this.timer) clearInterval(this.timer);
+    await this.inFlight;
   }
-  async tick() {
-    if (this.working) return;
-    this.working = true;
+  tick(): Promise<void> {
+    return (this.inFlight ??= this.runTick().finally(() => {
+      this.inFlight = undefined;
+    }));
+  }
+  private async runTick() {
     try {
       const job = await tx(async (c) => {
         const j = await one(
@@ -67,8 +71,6 @@ export class JobWorker implements OnModuleInit, OnModuleDestroy {
       }
     } catch (error) {
       console.error("Durable worker unavailable; jobs remain persisted.");
-    } finally {
-      this.working = false;
     }
   }
 }
